@@ -1,0 +1,54 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "my-translate",
+  "title": "My Translate",
+  "description": "Gemini-powered translation (any -> Ja for selection, Ja<->En for window)",
+  "icon": "command-icon.png",
+  "author": "you22fy",
+  "license": "MIT",
+  "categories": ["Productivity"],
+  "commands": [
+    {
+      "name": "translate-selection",
+      "title": "Translate Selection",
+      "subtitle": "My Translate",
+      "description": "Translate the currently selected text into Japanese",
+      "mode": "view"
+    },
+    {
+      "name": "my_translate",
+      "title": "My Translate",
+      "subtitle": "Window",
+      "description": "Open a window to translate text (auto En<->Ja)",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "geminiApiKey",
+      "title": "Gemini API Key",
+      "description": "Google AI Studio API key",
+      "type": "password",
+      "required": true
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.104.0",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.11",
+    "@types/node": "^20.8.10",
+    "@types/react": "^19.0.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "lint": "ray lint",
+    "fix-lint": "ray lint --fix",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
