@@ -13,7 +13,7 @@
       "title": "Translate Selection",
       "subtitle": "My Translate",
       "description": "Translate the currently selected text into Japanese",
-      "mode": "view"
+      "mode": "no-view"
     },
     {
       "name": "my_translate",

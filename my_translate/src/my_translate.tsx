@@ -3,6 +3,7 @@ import {
   ActionPanel,
   Form,
   Icon,
+  LaunchProps,
   Toast,
   showToast,
   useNavigation,
@@ -10,10 +11,23 @@ import {
 import { useState } from "react";
 import { ResultDetail } from "./components/ResultDetail";
 import { detectTarget } from "./lib/detect";
+import type { TargetLang } from "./lib/prompt";
 
+type Context = { text?: string; target?: TargetLang };
 type Values = { text: string };
 
-export default function MyTranslate() {
+export default function MyTranslate(
+  props: LaunchProps<{ launchContext: Context }>,
+) {
+  const ctxText = props.launchContext?.text?.trim() ?? "";
+  if (ctxText) {
+    const ctxTarget: TargetLang = props.launchContext?.target ?? "ja";
+    return <ResultDetail original={ctxText} target={ctxTarget} />;
+  }
+  return <TranslateForm />;
+}
+
+function TranslateForm() {
   const { push } = useNavigation();
   const [text, setText] = useState<string>("");
 
